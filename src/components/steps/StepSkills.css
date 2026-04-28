@@ -1,0 +1,211 @@
+.step-skills {
+  width: 100%;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skills-container h2 {
+  color: var(--primary, #f2ca50);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary, #f2ca50);
+  padding-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--on-surface-variant, #d0c5af);
+  font-size: 0.95rem;
+}
+
+.skills-info {
+  background-color: rgba(33, 150, 243, 0.1);
+  border-left: 4px solid #2196f3;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.skills-info p {
+  color: var(--on-surface, #e5e2e1);
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.skills-by-ability {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ability-skills-group {
+  background-color: var(--surface-container-low, #1c1b1b);
+  border: 1px solid var(--outline-variant, #4d4635);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.ability-skills-group:hover {
+  border-color: var(--primary, #f2ca50);
+  box-shadow: 0 4px 12px rgba(242, 202, 80, 0.1);
+}
+
+.ability-skills-title {
+  color: var(--primary, #f2ca50);
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--outline-variant, #4d4635);
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.skill-checkbox:hover {
+  background-color: var(--surface-container-lowest, #0e0e0e);
+}
+
+.skill-input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary, #f2ca50);
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.skill-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.skill-name {
+  color: var(--on-surface, #e5e2e1);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.skill-description {
+  color: var(--on-surface-variant, #d0c5af);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.skill-checkbox:has(.skill-input:checked) {
+  background-color: rgba(242, 202, 80, 0.1);
+  border-left: 3px solid var(--primary, #f2ca50);
+  padding-left: calc(0.75rem - 3px);
+}
+
+.skill-checkbox:has(.skill-input:checked) .skill-name {
+  color: var(--primary, #f2ca50);
+}
+
+.skills-summary {
+  background-color: var(--surface-container-low, #1c1b1b);
+  border: 1px solid var(--outline-variant, #4d4635);
+  border-left: 4px solid var(--secondary, #ffb4a8);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.skills-summary h3 {
+  color: var(--secondary, #ffb4a8);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.selected-skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.selected-skills-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: var(--surface-container-lowest, #0e0e0e);
+  border-radius: 0.5rem;
+  border: 1px solid var(--outline-variant, #4d4635);
+  transition: all 0.2s ease;
+}
+
+.selected-skills-list li:hover {
+  border-color: var(--secondary, #ffb4a8);
+}
+
+.selected-skill-name {
+  color: var(--on-surface, #e5e2e1);
+  font-weight: 500;
+}
+
+.remove-skill-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--secondary, #ffb4a8);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.remove-skill-btn:hover {
+  background-color: rgba(255, 180, 168, 0.1);
+  color: #ff5252;
+}
+
+.no-skills {
+  color: var(--on-surface-variant, #d0c5af);
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-container {
+    gap: 1rem;
+  }
+
+  .ability-skills-group {
+    padding: 1rem;
+  }
+
+  .skill-checkbox {
+    padding: 0.5rem;
+  }
+
+  .selected-skills-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

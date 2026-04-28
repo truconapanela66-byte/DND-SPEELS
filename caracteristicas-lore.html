@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#e5e2e1",
+                    "outline-variant": "#4d4635",
+                    "on-tertiary-container": "#4d433c",
+                    "on-tertiary-fixed": "#221a14",
+                    "on-surface": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "on-secondary-fixed": "#410000",
+                    "on-tertiary-fixed-variant": "#4f453d",
+                    "surface-tint": "#e9c349",
+                    "primary-fixed": "#ffe088",
+                    "on-background": "#e5e2e1",
+                    "secondary": "#ffb4a8",
+                    "on-secondary-fixed-variant": "#920703",
+                    "on-primary-fixed-variant": "#574500",
+                    "inverse-primary": "#735c00",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container": "#20201f",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary": "#372f28",
+                    "inverse-on-surface": "#313030",
+                    "background": "#131313",
+                    "error-container": "#93000a",
+                    "secondary-container": "#920703",
+                    "surface-bright": "#393939",
+                    "on-error": "#690005",
+                    "error": "#ffb4ab",
+                    "secondary-fixed": "#ffdad4",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "tertiary-fixed": "#efe0d5",
+                    "outline": "#99907c",
+                    "on-primary": "#3c2f00",
+                    "surface-dim": "#131313",
+                    "surface-container-highest": "#353535",
+                    "on-primary-fixed": "#241a00",
+                    "on-secondary": "#690000",
+                    "surface": "#131313",
+                    "primary-fixed-dim": "#e9c349",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-fixed-dim": "#d2c4ba",
+                    "on-primary-container": "#554300",
+                    "on-surface-variant": "#d0c5af",
+                    "tertiary-container": "#beb0a6",
+                    "primary-container": "#d4af37",
+                    "on-secondary-container": "#ff9a8a",
+                    "primary": "#f2ca50",
+                    "surface-variant": "#353535",
+                    "tertiary": "#dacbc1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "lg": "40px",
+                    "xs": "4px",
+                    "margin": "24px",
+                    "xl": "64px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Manrope"],
+                    "h3": ["Noto Serif"],
+                    "h2": ["Noto Serif"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "h1": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #4d4635;
+        border-radius: 10px;
+      }
+      .parchment-overlay {
+        background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 80%);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md custom-scrollbar">
+<!-- Top Navigation Anchor -->
+<header class="bg-zinc-950 text-yellow-600 font-serif text-lg tracking-tight docked full-width top-0 border-b border-zinc-800 flex justify-between items-center px-6 h-16 w-full z-50 sticky">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer">menu</span>
+<h1 class="font-serif font-bold uppercase tracking-widest text-yellow-600">Grimório do Aventureiro</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden md:block">
+<p class="text-sm font-bold text-on-surface leading-none">Valerius Thorne</p>
+<p class="text-xs text-zinc-500">Paladino Nível 5</p>
+</div>
+<div class="w-10 h-10 rounded-full border border-yellow-600/30 overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="high-detail digital painting of a noble paladin with golden hair and intense blue eyes, wearing ornate steel plate armor with gold filigree" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPPJ1IR4bM-ttlfeI5Slu0icfNBzXNIqibbPXX1XRQSl3fgb5Io_wIzl90R1xd4sJ2zKJc8lIeytVV5_GEjH0vCWktsmc-aKXgOQ533h2xrsb7JFELtvAdmF48rpzITybnQFBkUaSMaJ_zbcBdkMO8WGMavxfXVa-8Hp2JtDniqKtFT-buKclG2b1syqXNR-nBLK8kbZ-YjsLbq6cBmpF4jUBWT9BQbBQsPnH0AvrN5LHgyDDFu41YQFjM1I4vWTUqWSsEBKl4XVK0"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-margin py-md mb-24">
+<!-- Tab Navigation -->
+<nav class="flex gap-sm mb-lg border-b border-outline-variant/30 pb-4 overflow-x-auto whitespace-nowrap">
+<button class="flex items-center gap-2 px-md py-sm bg-yellow-950/20 text-yellow-500 rounded-xl transition-all duration-300 font-label-caps border border-yellow-600/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+                Visão Geral
+            </button>
+<button class="flex items-center gap-2 px-md py-sm text-zinc-500 hover:bg-zinc-800 rounded-xl transition-all duration-300 font-label-caps">
+<span class="material-symbols-outlined">lasso_select</span>
+                Atributos
+            </button>
+<button class="flex items-center gap-2 px-md py-sm text-zinc-500 hover:bg-zinc-800 rounded-xl transition-all duration-300 font-label-caps">
+<span class="material-symbols-outlined">military_tech</span>
+                Perícias
+            </button>
+</nav>
+<!-- Tab 1: Visão Geral (Hero Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-md">
+<div class="lg:col-span-4 flex flex-col gap-md">
+<!-- Character Portrait Card -->
+<div class="bg-surface-container-high border border-outline-variant/50 rounded-xl overflow-hidden parchment-overlay shadow-2xl">
+<div class="aspect-[3/4] relative">
+<img class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" data-alt="full body portrait of a stoic warrior in dark chrome armor, standing in a dimly lit cathedral with golden light shafts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD89az6tNNmfasjaMe0Xrpv9RBmIPp2NhRZgpaDFEIzErioEhZ9-XXN47D9NY3rxGuO2bJdZXiZj2fOq-GHR5LsBT3USFQwyAuaQdO5VbTc-eb_66tuo5V5l0CknoEtglbTimyypa1nABU7BHwfdmSdv9vAR-Smfyrfizzw-izfx5wd573wMTqiNjNvmibHZQimDXU09COkuq9dirNLo56lmqb47zCaZ_GiPUjggMGgYoVy1QLLO6ns9NDmMtkynI_PQRsfgvewbbC_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<h2 class="font-h1 text-primary tracking-tight">Valerius Thorne</h2>
+<p class="font-label-caps text-on-surface-variant">Humano • Paladino • Juramento de Vingança</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 flex flex-col gap-md">
+<!-- Core Identity Info -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm">
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg">
+<span class="font-label-caps text-primary-container text-[10px]">CLASSE &amp; NÍVEL</span>
+<p class="font-h3 text-on-surface">Paladino 5</p>
+</div>
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg">
+<span class="font-label-caps text-primary-container text-[10px]">ESPÉCIE</span>
+<p class="font-h3 text-on-surface">Humano</p>
+</div>
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg">
+<span class="font-label-caps text-primary-container text-[10px]">ALINHAMENTO</span>
+<p class="font-h3 text-on-surface">Leal e Bom</p>
+</div>
+</div>
+<!-- Narrative Summary -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-md rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[64px]">history_edu</span>
+</div>
+<h3 class="font-h3 text-primary mb-sm flex items-center gap-2">
+<span class="w-8 h-px bg-primary/30"></span>
+                        Resumo Narrativo
+                    </h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed italic">
+                        "Nascido nas cinzas de Westgate, Valerius jurou que nenhuma sombra passaria impune sob sua vigília. Portando o brasão do Cálice Partido, ele busca retribuição contra aqueles que profanam o solo sagrado. Sua fé é sua armadura, sua fúria é sua espada."
+                    </p>
+<div class="mt-md flex flex-wrap gap-xs">
+<span class="bg-primary-container/20 text-primary px-3 py-1 rounded-full text-[10px] font-label-caps border border-primary/20">HERÓI DO POVO</span>
+<span class="bg-secondary-container/20 text-secondary px-3 py-1 rounded-full text-[10px] font-label-caps border border-secondary/20">ESTRATEGISTA</span>
+<span class="bg-tertiary-container/20 text-tertiary px-3 py-1 rounded-full text-[10px] font-label-caps border border-tertiary/20">SOLITÁRIO</span>
+</div>
+</div>
+<!-- Fast Stats Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm">
+<div class="flex flex-col items-center justify-center p-md bg-zinc-900 border border-outline-variant/20 rounded-xl">
+<span class="material-symbols-outlined text-primary mb-1">shield</span>
+<span class="font-label-caps text-[10px] text-zinc-500">CA</span>
+<span class="font-h2 text-on-surface">18</span>
+</div>
+<div class="flex flex-col items-center justify-center p-md bg-zinc-900 border border-outline-variant/20 rounded-xl">
+<span class="material-symbols-outlined text-secondary mb-1">favorite</span>
+<span class="font-label-caps text-[10px] text-zinc-500">HP</span>
+<span class="font-h2 text-on-surface">44/44</span>
+</div>
+<div class="flex flex-col items-center justify-center p-md bg-zinc-900 border border-outline-variant/20 rounded-xl">
+<span class="material-symbols-outlined text-primary mb-1">bolt</span>
+<span class="font-label-caps text-[10px] text-zinc-500">INIC.</span>
+<span class="font-h2 text-on-surface">+1</span>
+</div>
+<div class="flex flex-col items-center justify-center p-md bg-zinc-900 border border-outline-variant/20 rounded-xl">
+<span class="material-symbols-outlined text-primary mb-1">speed</span>
+<span class="font-label-caps text-[10px] text-zinc-500">DESLOC.</span>
+<span class="font-h2 text-on-surface">9m</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-gradient-to-r from-transparent via-outline-variant/40 to-transparent my-xl"></div>
+<!-- Section: Atributos & Perícias (The Core Mechanics) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Column: Attributes (Left) -->
+<section class="lg:col-span-5 flex flex-col gap-md">
+<div class="flex items-center gap-sm mb-base">
+<h2 class="font-h2 text-on-surface">Atributos Primários</h2>
+<span class="flex-grow h-px bg-outline-variant/20"></span>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<!-- STR -->
+<div class="group relative bg-surface-container border border-outline-variant/30 rounded-xl p-md text-center transition-all duration-300 hover:border-primary/50">
+<span class="absolute top-2 left-1/2 -translate-x-1/2 font-label-caps text-[10px] text-zinc-500 tracking-widest">FORÇA</span>
+<div class="my-md">
+<span class="font-h1 text-on-surface">+4</span>
+<div class="bg-zinc-950 rounded-lg py-1 px-3 inline-block mt-2 border border-outline-variant/20">
+<span class="font-label-caps text-primary">18</span>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-2 flex justify-center gap-4">
+<div class="flex flex-col items-center">
+<span class="text-[9px] font-label-caps text-zinc-500">SALV.</span>
+<span class="font-bold text-primary-container">+7</span>
+</div>
+</div>
+</div>
+<!-- DEX -->
+<div class="group relative bg-surface-container border border-outline-variant/30 rounded-xl p-md text-center hover:border-primary/50 transition-all">
+<span class="absolute top-2 left-1/2 -translate-x-1/2 font-label-caps text-[10px] text-zinc-500">DESTREZA</span>
+<div class="my-md">
+<span class="font-h1 text-on-surface">+1</span>
+<div class="bg-zinc-950 rounded-lg py-1 px-3 inline-block mt-2 border border-outline-variant/20">
+<span class="font-label-caps text-primary">12</span>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-2 flex justify-center gap-4">
+<div class="flex flex-col items-center">
+<span class="text-[9px] font-label-caps text-zinc-500">SALV.</span>
+<span class="font-bold text-zinc-500">+1</span>
+</div>
+</div>
+</div>
+<!-- CON -->
+<div class="group relative bg-surface-container border border-outline-variant/30 rounded-xl p-md text-center hover:border-primary/50 transition-all">
+<span class="absolute top-2 left-1/2 -translate-x-1/2 font-label-caps text-[10px] text-zinc-500">CONSTITUIÇÃO</span>
+<div class="my-md">
+<span class="font-h1 text-on-surface">+2</span>
+<div class="bg-zinc-950 rounded-lg py-1 px-3 inline-block mt-2 border border-outline-variant/20">
+<span class="font-label-caps text-primary">14</span>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-2 flex justify-center gap-4">
+<div class="flex flex-col items-center">
+<span class="text-[9px] font-label-caps text-zinc-500">SALV.</span>
+<span class="font-bold text-zinc-500">+2</span>
+</div>
+</div>
+</div>
+<!-- INT -->
+<div class="group relative bg-surface-container border border-outline-variant/30 rounded-xl p-md text-center hover:border-primary/50 transition-all">
+<span class="absolute top-2 left-1/2 -translate-x-1/2 font-label-caps text-[10px] text-zinc-500">INTELIGÊNCIA</span>
+<div class="my-md">
+<span class="font-h1 text-on-surface">+0</span>
+<div class="bg-zinc-950 rounded-lg py-1 px-3 inline-block mt-2 border border-outline-variant/20">
+<span class="font-label-caps text-primary">10</span>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-2 flex justify-center gap-4">
+<div class="flex flex-col items-center">
+<span class="text-[9px] font-label-caps text-zinc-500">SALV.</span>
+<span class="font-bold text-zinc-500">+0</span>
+</div>
+</div>
+</div>
+<!-- WIS -->
+<div class="group relative bg-surface-container border border-outline-variant/30 rounded-xl p-md text-center hover:border-primary/50 transition-all">
+<span class="absolute top-2 left-1/2 -translate-x-1/2 font-label-caps text-[10px] text-zinc-500">SABEDORIA</span>
+<div class="my-md">
+<span class="font-h1 text-on-surface">+1</span>
+<div class="bg-zinc-950 rounded-lg py-1 px-3 inline-block mt-2 border border-outline-variant/20">
+<span class="font-label-caps text-primary">13</span>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-2 flex justify-center gap-4">
+<div class="flex flex-col items-center">
+<span class="text-[9px] font-label-caps text-zinc-500">SALV.</span>
+<span class="font-bold text-primary-container">+4</span>
+</div>
+</div>
+</div>
+<!-- CHA -->
+<div class="group relative bg-surface-container border border-outline-variant/30 rounded-xl p-md text-center hover:border-primary/50 transition-all">
+<span class="absolute top-2 left-1/2 -translate-x-1/2 font-label-caps text-[10px] text-zinc-500">CARISMA</span>
+<div class="my-md">
+<span class="font-h1 text-on-surface">+3</span>
+<div class="bg-zinc-950 rounded-lg py-1 px-3 inline-block mt-2 border border-outline-variant/20">
+<span class="font-label-caps text-primary">16</span>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-2 flex justify-center gap-4">
+<div class="flex flex-col items-center">
+<span class="text-[9px] font-label-caps text-zinc-500">SALV.</span>
+<span class="font-bold text-primary-container">+6</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Column: Skills (Right) -->
+<section class="lg:col-span-7 flex flex-col gap-md">
+<div class="flex items-center justify-between mb-base">
+<h2 class="font-h2 text-on-surface">Perícias &amp; Proficiências</h2>
+<div class="bg-primary/10 border border-primary/20 rounded-lg px-4 py-2 flex items-center gap-2">
+<span class="font-label-caps text-[10px] text-primary tracking-widest">BÔNUS DE PROFICIÊNCIA</span>
+<span class="font-h3 text-primary">+3</span>
+</div>
+</div>
+<!-- Skills Grouping -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Physical Skills -->
+<div class="space-y-sm">
+<h4 class="font-label-caps text-zinc-500 border-b border-outline-variant/20 pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">fitness_center</span> FÍSICAS
+                        </h4>
+<div class="flex justify-between items-center p-2 rounded hover:bg-zinc-800/50 group">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full border border-primary bg-primary shadow-[0_0_8px_rgba(242,202,80,0.4)]"></span>
+<span class="font-body-md text-on-surface">Atletismo <span class="text-xs text-zinc-600">(FOR)</span></span>
+</div>
+<span class="font-bold text-primary">+7</span>
+</div>
+<div class="flex justify-between items-center p-2 rounded hover:bg-zinc-800/50">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full border border-zinc-700"></span>
+<span class="font-body-md text-on-surface">Acrobacia <span class="text-xs text-zinc-600">(DES)</span></span>
+</div>
+<span class="text-zinc-500">+1</span>
+</div>
+<div class="flex justify-between items-center p-2 rounded hover:bg-zinc-800/50">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full border border-zinc-700"></span>
+<span class="font-body-md text-on-surface">Furtividade <span class="text-xs text-zinc-600">(DES)</span></span>
+</div>
+<span class="text-zinc-500">+1</span>
+</div>
+</div>
+<!-- Mental Skills -->
+<div class="space-y-sm">
+<h4 class="font-label-caps text-zinc-500 border-b border-outline-variant/20 pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">psychology</span> MENTAIS
+                        </h4>
+<div class="flex justify-between items-center p-2 rounded hover:bg-zinc-800/50">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full border border-primary bg-primary/40"></span>
+<span class="font-body-md text-on-surface">Religião <span class="text-xs text-zinc-600">(INT)</span></span>
+</div>
+<span class="font-bold text-primary-container">+3</span>
+</div>
+<div class="flex justify-between items-center p-2 rounded hover:bg-zinc-800/50">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full border border-primary bg-primary shadow-[0_0_8px_rgba(242,202,80,0.4)]"></span>
+<span class="font-body-md text-on-surface">Intuição <span class="text-xs text-zinc-600">(SAB)</span></span>
+</div>
+<span class="font-bold text-primary">+4</span>
+</div>
+<div class="flex justify-between items-center p-2 rounded bg-primary/5 border border-primary/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">visibility</span>
+<span class="font-bold text-on-surface">Percepção <span class="text-xs text-zinc-600">(SAB)</span></span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] font-label-caps text-primary-container">PASSIVA: 14</span>
+<span class="font-bold text-primary">+4</span>
+</div>
+</div>
+</div>
+<!-- Social Skills -->
+<div class="space-y-sm md:col-span-2">
+<h4 class="font-label-caps text-zinc-500 border-b border-outline-variant/20 pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">forum</span> SOCIAIS
+                        </h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-md">
+<div class="flex justify-between items-center p-2 rounded hover:bg-zinc-800/50">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full border border-primary bg-primary shadow-[0_0_8px_rgba(242,202,80,0.4)]"></span>
+<span class="font-body-md text-on-surface">Persuasão <span class="text-xs text-zinc-600">(CAR)</span></span>
+</div>
+<span class="font-bold text-primary">+6</span>
+</div>
+<div class="flex justify-between items-center p-2 rounded hover:bg-zinc-800/50">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full border border-primary bg-primary/40"></span>
+<span class="font-body-md text-on-surface">Intimidação <span class="text-xs text-zinc-600">(CAR)</span></span>
+</div>
+<span class="font-bold text-primary-container">+6</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Languages & Tools Tools -->
+<div class="mt-md bg-surface-container-low p-md rounded-xl border border-outline-variant/20">
+<h4 class="font-label-caps text-zinc-500 mb-sm">OUTRAS PROFICIÊNCIAS</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-zinc-950 border border-zinc-800 rounded text-xs">Comum</span>
+<span class="px-2 py-1 bg-zinc-950 border border-zinc-800 rounded text-xs">Celestial</span>
+<span class="px-2 py-1 bg-zinc-950 border border-zinc-800 rounded text-xs">Anão</span>
+<span class="px-2 py-1 bg-zinc-950 border border-zinc-800 rounded text-xs">Todas as Armaduras</span>
+<span class="px-2 py-1 bg-zinc-950 border border-zinc-800 rounded text-xs">Armas Marciais</span>
+<span class="px-2 py-1 bg-zinc-950 border border-zinc-800 rounded text-xs">Ferramentas de Pedreiro</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile Anchor) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 border-t rounded-t-lg bg-zinc-900 border-zinc-800 shadow-2xl flex justify-around items-center h-20 px-2 font-serif text-[10px] font-medium text-yellow-600">
+<button class="flex flex-col items-center justify-center text-yellow-500 bg-yellow-950/20 rounded-xl px-3 py-1 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="razo" style="font-variation-settings: 'FILL' 1;">lasso_select</span>
+            Atributos
+        </button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:bg-zinc-800 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+            Combate
+        </button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:bg-zinc-800 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+            Magias
+        </button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:bg-zinc-800 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="backpack">backpack</span>
+            Inventário
+        </button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:bg-zinc-800 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+            Notas
+        </button>
+</nav>
+<!-- Floating Action Button: Contextual for Main Character View -->
+<button class="fixed bottom-24 right-6 md:bottom-10 md:right-10 w-14 h-14 bg-primary text-on-primary rounded-full shadow-[0_0_20px_rgba(242,202,80,0.5)] flex items-center justify-center transition-all duration-150 active:scale-95 group overflow-hidden">
+<span class="material-symbols-outlined text-[32px] group-hover:rotate-12 transition-transform">swords</span>
+</button>
+</body></html>

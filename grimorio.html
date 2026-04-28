@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Manrope:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .parchment-overlay {
+            background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+        }
+        .spell-card-gradient {
+            background: linear-gradient(145deg, #262626 0%, #1c1b1b 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#554300",
+                        "tertiary-fixed": "#efe0d5",
+                        "on-secondary-fixed": "#410000",
+                        "surface-variant": "#353535",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-bright": "#393939",
+                        "on-surface-variant": "#d0c5af",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#241a00",
+                        "primary": "#f2ca50",
+                        "on-secondary-fixed-variant": "#920703",
+                        "inverse-primary": "#735c00",
+                        "surface-tint": "#e9c349",
+                        "background": "#131313",
+                        "outline": "#99907c",
+                        "primary-container": "#d4af37",
+                        "on-secondary": "#690000",
+                        "secondary": "#ffb4a8",
+                        "tertiary-container": "#beb0a6",
+                        "primary-fixed": "#ffe088",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#4f453d",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#4d433c",
+                        "on-error": "#690005",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-secondary-container": "#ff9a8a",
+                        "surface-container": "#20201f",
+                        "surface-container-highest": "#353535",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "outline-variant": "#4d4635",
+                        "on-primary": "#3c2f00",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed": "#ffdad4",
+                        "on-tertiary-fixed": "#221a14",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131313",
+                        "tertiary": "#dacbc1",
+                        "surface": "#131313",
+                        "tertiary-fixed-dim": "#d2c4ba",
+                        "secondary-container": "#920703",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-tertiary": "#372f28"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "margin": "24px",
+                        "xs": "4px",
+                        "xl": "64px",
+                        "base": "8px",
+                        "md": "24px",
+                        "gutter": "16px",
+                        "lg": "40px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Noto Serif"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "h1": ["Noto Serif"],
+                        "h3": ["Noto Serif"],
+                        "label-caps": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-stone-950/95 text-[#d4af37] font-serif tracking-tight docked full-width top-0 border-b border-[#3d3d3d] flat no shadows flex justify-between items-center w-full px-6 h-16 sticky z-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border border-[#d4af37]/30 overflow-hidden">
+<img alt="Elowen Portrait" class="w-full h-full object-cover" data-alt="Close up portrait of a regal female draconic sorcerer with golden scales on her temples and piercing amber eyes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeguZ-asJQX4--E6Xofcclg67QH9X3Xk11Vt7SsnXeA1oCg0wK2BOXz2fWF5yAVdtPCI-3hUi702OyKWeGBx0TikkBXvlCLKnHmtBsWHtlZyks34fQ6kRC1cciTWdH3AISN0SzABs6LdWfqAZvwykCTqFMi2_XqnxElH27oNhr2_ct5k5F2MFWqmPIkj1bfTovsrdCkRdsuGXXxRgi294_pSbkwkwNSo2InMieqdbBnyJc0dDHvHhPnvGNhbkiFohlvAQG5lSywlW8"/>
+</div>
+<h1 class="text-xl font-bold uppercase tracking-widest text-[#d4af37]">Grimório</h1>
+</div>
+<button class="active:scale-95 duration-150 hover:text-[#d4af37] transition-colors">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+</button>
+</header>
+<main class="max-w-5xl mx-auto px-margin pt-base space-y-lg">
+<!-- Spellcasting Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container border border-outline-variant p-md rounded-lg flex flex-col items-center justify-center text-center parchment-overlay">
+<span class="font-label-caps text-outline uppercase mb-xs">Spellcasting Ability</span>
+<div class="text-h2 font-h2 text-primary">CHA</div>
+<div class="text-h3 font-h3 text-on-surface">18 <span class="text-primary-container">(+4)</span></div>
+</div>
+<div class="bg-surface-container border border-outline-variant p-md rounded-lg flex flex-col items-center justify-center text-center parchment-overlay">
+<span class="font-label-caps text-outline uppercase mb-xs">Spell Save DC</span>
+<div class="text-h1 font-h1 text-primary">15</div>
+<div class="w-16 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent my-xs"></div>
+<span class="text-body-md text-on-surface-variant italic">Sorcerer level 8</span>
+</div>
+<div class="bg-surface-container border border-outline-variant p-md rounded-lg flex flex-col items-center justify-center text-center parchment-overlay">
+<span class="font-label-caps text-outline uppercase mb-xs">Spell Attack Bonus</span>
+<div class="text-h2 font-h2 text-primary">+7</div>
+<div class="text-body-md text-on-surface-variant">Proficiency: +3</div>
+</div>
+</section>
+<!-- Spell Slots Section -->
+<section class="bg-[#262626] border border-[#3d3d3d] rounded-lg p-md">
+<h2 class="font-h3 text-h3 text-primary mb-sm flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="pentagon">pentagon</span>
+                Arcane Wells
+            </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Level 1 -->
+<div class="space-y-xs">
+<div class="flex justify-between font-label-caps text-outline">
+<span>1st Level</span>
+<span>4/4</span>
+</div>
+<div class="flex gap-2">
+<div class="h-2 flex-1 bg-primary border border-primary/50 shadow-[0_0_8px_rgba(242,202,80,0.4)]"></div>
+<div class="h-2 flex-1 bg-primary border border-primary/50 shadow-[0_0_8px_rgba(242,202,80,0.4)]"></div>
+<div class="h-2 flex-1 bg-primary border border-primary/50 shadow-[0_0_8px_rgba(242,202,80,0.4)]"></div>
+<div class="h-2 flex-1 bg-primary border border-primary/50 shadow-[0_0_8px_rgba(242,202,80,0.4)]"></div>
+</div>
+</div>
+<!-- Level 2 -->
+<div class="space-y-xs">
+<div class="flex justify-between font-label-caps text-outline">
+<span>2nd Level</span>
+<span>2/3</span>
+</div>
+<div class="flex gap-2">
+<div class="h-2 flex-1 bg-primary border border-primary/50"></div>
+<div class="h-2 flex-1 bg-primary border border-primary/50"></div>
+<div class="h-2 flex-1 bg-surface-container-highest border border-outline-variant"></div>
+</div>
+</div>
+<!-- Level 3 -->
+<div class="space-y-xs">
+<div class="flex justify-between font-label-caps text-outline">
+<span>3rd Level</span>
+<span>3/3</span>
+</div>
+<div class="flex gap-2">
+<div class="h-2 flex-1 bg-primary border border-primary/50"></div>
+<div class="h-2 flex-1 bg-primary border border-primary/50"></div>
+<div class="h-2 flex-1 bg-primary border border-primary/50"></div>
+</div>
+</div>
+<!-- Level 4 -->
+<div class="space-y-xs">
+<div class="flex justify-between font-label-caps text-outline">
+<span>4th Level</span>
+<span>0/2</span>
+</div>
+<div class="flex gap-2">
+<div class="h-2 flex-1 bg-surface-container-highest border border-outline-variant"></div>
+<div class="h-2 flex-1 bg-surface-container-highest border border-outline-variant"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Spell List -->
+<div class="space-y-lg">
+<!-- Cantrips -->
+<section>
+<div class="flex items-center gap-4 mb-md">
+<h3 class="font-h3 text-h3 text-tertiary whitespace-nowrap">Cantrips</h3>
+<div class="h-px w-full bg-gradient-to-r from-outline-variant to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- Fire Bolt -->
+<div class="spell-card-gradient border border-[#3d3d3d] p-sm rounded-lg hover:border-primary/50 transition-all group">
+<div class="flex justify-between items-start">
+<h4 class="font-h3 text-body-lg text-primary">Fire Bolt</h4>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 font-bold rounded uppercase">Action</span>
+</div>
+<div class="text-outline text-label-caps mt-1">Range: 120ft</div>
+<p class="text-on-surface-variant text-body-md mt-sm">Hurl a mote of fire. Make a ranged spell attack for 2d10 fire damage.</p>
+</div>
+<!-- Mage Hand -->
+<div class="spell-card-gradient border border-[#3d3d3d] p-sm rounded-lg hover:border-primary/50 transition-all group">
+<div class="flex justify-between items-start">
+<h4 class="font-h3 text-body-lg text-primary">Mage Hand</h4>
+<span class="bg-surface-container-highest text-on-surface text-[10px] px-2 py-0.5 font-bold rounded uppercase border border-outline-variant">Action</span>
+</div>
+<div class="text-outline text-label-caps mt-1">Range: 30ft</div>
+<p class="text-on-surface-variant text-body-md mt-sm">Create a spectral, floating hand that can manipulate objects.</p>
+</div>
+</div>
+</section>
+<!-- 1st Level -->
+<section>
+<div class="flex items-center gap-4 mb-md">
+<h3 class="font-h3 text-h3 text-tertiary whitespace-nowrap">1st Level</h3>
+<div class="h-px w-full bg-gradient-to-r from-outline-variant to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- Shield -->
+<div class="spell-card-gradient border border-[#3d3d3d] p-sm rounded-lg hover:border-primary/50 transition-all group">
+<div class="flex justify-between items-start">
+<h4 class="font-h3 text-body-lg text-primary">Shield</h4>
+<span class="bg-on-tertiary-fixed-variant text-tertiary-fixed text-[10px] px-2 py-0.5 font-bold rounded uppercase">Reaction</span>
+</div>
+<div class="text-outline text-label-caps mt-1">Range: Self</div>
+<p class="text-on-surface-variant text-body-md mt-sm">+5 bonus to AC until the start of your next turn, including against the triggering attack.</p>
+</div>
+<!-- Magic Missile -->
+<div class="spell-card-gradient border border-[#3d3d3d] p-sm rounded-lg hover:border-primary/50 transition-all group">
+<div class="flex justify-between items-start">
+<h4 class="font-h3 text-body-lg text-primary">Magic Missile</h4>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 font-bold rounded uppercase">Action</span>
+</div>
+<div class="text-outline text-label-caps mt-1">Range: 120ft</div>
+<p class="text-on-surface-variant text-body-md mt-sm">Fire 3 darts that automatically hit for 1d4+1 force damage each.</p>
+</div>
+</div>
+</section>
+<!-- 3rd Level - Highlight Section -->
+<section>
+<div class="flex items-center gap-4 mb-md">
+<h3 class="font-h3 text-h3 text-tertiary whitespace-nowrap">3rd Level</h3>
+<div class="h-px w-full bg-gradient-to-r from-outline-variant to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 gap-sm">
+<!-- Fireball -->
+<div class="relative overflow-hidden bg-gradient-to-br from-[#302a24] to-[#1a1a1a] border border-primary-container/30 p-md rounded-lg group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[80px]" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-sm">
+<h4 class="font-h1 text-h3 text-primary-container tracking-wide">Fireball</h4>
+<span class="bg-secondary-container text-on-secondary-container text-[12px] px-3 py-1 font-bold rounded uppercase shadow-lg shadow-on-secondary/20">Action</span>
+</div>
+<div class="flex gap-gutter mb-md">
+<div class="flex flex-col">
+<span class="font-label-caps text-outline text-[10px]">Range</span>
+<span class="text-on-surface font-bold">150 ft (20ft Radius)</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/30 pl-gutter">
+<span class="font-label-caps text-outline text-[10px]">Damage</span>
+<span class="text-on-surface font-bold">8d6 Fire</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/30 pl-gutter">
+<span class="font-label-caps text-outline text-[10px]">Save</span>
+<span class="text-on-surface font-bold">DEX (Half)</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-body-lg max-w-2xl">
+                                A bright streak flashes from your pointing finger to a point you choose. Each creature in a 20-foot-radius sphere must make a Dexterity saving throw.
+                            </p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-[#1a1a1a] border-t border-[#3d3d3d] rounded-t-lg flat no shadows">
+<a class="flex flex-col items-center justify-center text-stone-500 opacity-70 hover:opacity-100 active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-serif text-[10px] uppercase tracking-tighter mt-1">Atributos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 opacity-70 hover:opacity-100 active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="swords">swords</span>
+<span class="font-serif text-[10px] uppercase tracking-tighter mt-1">Combat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#d4af37] scale-110 font-bold active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-serif text-[10px] uppercase tracking-tighter mt-1">Grimório</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 opacity-70 hover:opacity-100 active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="backpack">backpack</span>
+<span class="font-serif text-[10px] uppercase tracking-tighter mt-1">Inventário</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 opacity-70 hover:opacity-100 active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-serif text-[10px] uppercase tracking-tighter mt-1">Diário</span>
+</a>
+</nav>
+</body></html>

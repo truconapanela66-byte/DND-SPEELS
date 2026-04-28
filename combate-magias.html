@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#e5e2e1",
+                    "outline-variant": "#4d4635",
+                    "on-tertiary-container": "#4d433c",
+                    "on-tertiary-fixed": "#221a14",
+                    "on-surface": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "on-secondary-fixed": "#410000",
+                    "on-tertiary-fixed-variant": "#4f453d",
+                    "surface-tint": "#d4af37",
+                    "primary-fixed": "#ffe088",
+                    "on-background": "#e5e2e1",
+                    "secondary": "#ffb4a8",
+                    "on-secondary-fixed-variant": "#920703",
+                    "on-primary-fixed-variant": "#574500",
+                    "inverse-primary": "#735c00",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container": "#131313",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary": "#372f28",
+                    "inverse-on-surface": "#313030",
+                    "background": "#0e0e0e",
+                    "error-container": "#93000a",
+                    "secondary-container": "#920703",
+                    "surface-bright": "#393939",
+                    "on-error": "#690005",
+                    "error": "#ffb4ab",
+                    "secondary-fixed": "#ffdad4",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "tertiary-fixed": "#efe0d5",
+                    "outline": "#4d4635",
+                    "on-primary": "#3c2f00",
+                    "surface-dim": "#131313",
+                    "surface-container-highest": "#1c1b1b",
+                    "on-primary-fixed": "#241a00",
+                    "on-secondary": "#690000",
+                    "surface": "#131313",
+                    "primary-fixed-dim": "#e9c349",
+                    "surface-container-high": "#20201f",
+                    "tertiary-fixed-dim": "#d2c4ba",
+                    "on-primary-container": "#554300",
+                    "on-surface-variant": "#99907c",
+                    "tertiary-container": "#beb0a6",
+                    "primary-container": "#d4af37",
+                    "on-secondary-container": "#ff9a8a",
+                    "primary": "#d4af37",
+                    "surface-variant": "#1c1b1b",
+                    "tertiary": "#dacbc1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "8px",
+                    "lg": "8px",
+                    "xl": "8px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "lg": "40px",
+                    "xs": "4px",
+                    "margin": "24px",
+                    "xl": "64px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Manrope"],
+                    "h3": ["Noto Serif"],
+                    "h2": ["Noto Serif"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "h1": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest text-primary font-serif text-lg tracking-tight docked full-width top-0 border-b border-outline-variant/30 flex justify-between items-center px-6 h-16 w-full z-40">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer">menu</span>
+<h1 class="font-serif font-bold uppercase tracking-widest text-primary">Grimório do Aventureiro</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-label-caps text-on-surface-variant hidden md:block uppercase">Valerius Thorne</span>
+<div class="w-10 h-10 rounded-full border border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a noble knight with battle-scarred face and long dark hair in a moody dark fantasy cinematic style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZO28PtxjuiQbosFwmAC6ZfzHVEg5rn-fkA-sSv2MSA3ZVmM_4FgPffG7dqeSgdUWbfgXCN_YyS4mkxG6BuJoH0oDnuJDRD7yhblB9f2ankhkhK6I2iT6wPjSTJznNJcffLaHrMEvAW_9NRV256IJmbfJYzlaPCrejyRhfYUBixsVp69orBT6Q9ZYQgLIqVQiSAsAZAq88fi82-0bkS8yVuyHF09Abktur9tE2rW6n8YqUgeP7FiBKbUjpYUwVbNkUUI8nEmYaLRU_"/>
+</div>
+</div>
+</header>
+<main class="flex-1 pb-24 lg:pb-0 lg:pl-80">
+<!-- NavigationDrawer (Sidebar on Desktop) -->
+<aside class="hidden lg:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-80 border-r border-outline-variant/20 bg-surface-container-lowest flex-col p-4 gap-2 z-30">
+<div class="flex items-center gap-4 p-4 mb-4 border-b border-outline-variant/20">
+<div class="w-12 h-12 rounded-lg border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="stylized illustration of a glowing gold shield emblem" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd-ROMGxTOrdkrfGcF1Y45egk37sglSle9V24YZTksVp_7aotVOxGFTnJiQyaOncPxPxSSji9PjWr5tWuGk2eo2Lzfj_e9hquxZN6Wei7Uh8FeuzZRezv9nbRmn1WGtQE7mPWa7meFUEuexIXqXCMOCxG8Ix5zOT-BvAj2woPb6pUHVOOr4z8cmv0xtbD2fiX6rh0qLX04AgMRaAaMsSgLPm4mZl1yI36tnSAjHf8nigYOeBJ8EuKhv_I7vRF-qTiMr6mL7D2WUr_3"/>
+</div>
+<div>
+<h3 class="font-serif text-primary font-bold leading-tight">Valerius Thorne</h3>
+<p class="text-on-surface-variant text-xs uppercase tracking-wider">Paladino Nível 5</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-serif text-base hover:bg-surface-bright/10 duration-200 ease-out rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span> Ficha Principal
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold bg-primary/10 font-serif text-base rounded-lg border-l-2 border-primary" href="#">
+<span class="material-symbols-outlined">shield</span> Combate &amp; Magias
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-serif text-base hover:bg-surface-bright/10 duration-200 ease-out rounded-lg" href="#">
+<span class="material-symbols-outlined">gavel</span> Equipamento
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-serif text-base hover:bg-surface-bright/10 duration-200 ease-out rounded-lg" href="#">
+<span class="material-symbols-outlined">book</span> Diário
+                </a>
+</nav>
+</aside>
+<section class="p-gutter md:p-md lg:p-lg space-y-lg">
+<!-- COMBAT SECTION -->
+<div class="space-y-md">
+<div class="flex items-center gap-4 mb-2">
+<span class="material-symbols-outlined text-primary text-3xl">shield</span>
+<h2 class="font-h2 text-h2 text-on-surface">Combate</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-sm">
+<!-- Vital Stats -->
+<div class="md:col-span-1 bg-surface-container border border-outline-variant/30 p-sm rounded-lg flex flex-col justify-between min-h-[140px]">
+<div class="flex justify-between items-start">
+<span class="text-label-caps text-on-surface-variant">Classe de Armadura</span>
+<span class="material-symbols-outlined text-primary text-xl">security</span>
+</div>
+<div class="text-center">
+<span class="text-[48px] font-h1 text-primary leading-none">18</span>
+</div>
+<div class="text-center text-[10px] text-on-surface-variant font-label-caps pt-xs">Placas + Escudo</div>
+</div>
+<div class="md:col-span-2 bg-surface-container border border-outline-variant/30 p-sm rounded-lg">
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">favorite</span>
+<span class="text-label-caps text-on-surface">Pontos de Vida</span>
+</div>
+<span class="text-label-caps text-on-surface-variant">Nvl 5 (5d10)</span>
+</div>
+<div class="flex items-end justify-center gap-4 mb-sm">
+<div class="text-center">
+<div class="text-xs text-on-surface-variant mb-xs uppercase">Atual</div>
+<div class="text-h2 font-h1 text-primary">42</div>
+</div>
+<div class="text-center pb-1">
+<div class="text-h3 font-h1 text-on-surface-variant">/</div>
+</div>
+<div class="text-center">
+<div class="text-xs text-on-surface-variant mb-xs uppercase">Máximo</div>
+<div class="text-h2 font-h1 text-on-surface-variant">48</div>
+</div>
+</div>
+<div class="w-full h-2 bg-surface-container-lowest rounded-full overflow-hidden border border-outline-variant/20 mb-base">
+<div class="h-full bg-primary w-[87%] shadow-[0_0_10px_rgba(212,175,55,0.2)]"></div>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-[10px] text-on-surface-variant italic">PV Temporários: <span class="text-primary font-bold">5</span></div>
+<div class="flex gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full border border-outline-variant"></span>
+</div>
+</div>
+</div>
+<div class="md:col-span-1 grid grid-cols-2 gap-sm">
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg text-center flex flex-col justify-center">
+<span class="text-[10px] text-on-surface-variant font-label-caps block mb-1">Iniciativa</span>
+<span class="text-h3 font-h1 text-on-surface">+2</span>
+</div>
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg text-center flex flex-col justify-center">
+<span class="text-[10px] text-on-surface-variant font-label-caps block mb-1">Desloc.</span>
+<span class="text-h3 font-h1 text-on-surface">9m</span>
+</div>
+</div>
+</div>
+<!-- Attacks Table -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-lg overflow-hidden">
+<div class="bg-surface-container-high px-md py-sm border-b border-outline-variant/30 flex justify-between items-center">
+<span class="text-label-caps text-on-surface">Ataques &amp; Armas</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">add_circle</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-xs font-label-caps text-on-surface-variant border-b border-outline-variant/20">
+<th class="px-md py-sm">Arma / Feitiço</th>
+<th class="px-md py-sm">Bônus</th>
+<th class="px-md py-sm">Dano / Tipo</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="border-b border-outline-variant/20 hover:bg-surface-container transition-colors">
+<td class="px-md py-md">
+<div class="font-bold text-on-surface">Espada Longa (Chama Solar)</div>
+<div class="text-[10px] text-on-surface-variant">Mágica</div>
+</td>
+<td class="px-md py-md text-primary font-bold">+7</td>
+<td class="px-md py-md">
+<div class="text-on-surface">1d8 + 4</div>
+<div class="text-[10px] text-primary uppercase">Cortante + Radiante</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- MAGIC SECTION -->
+<div class="space-y-md">
+<div class="flex items-center gap-4 mb-2">
+<span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
+<h2 class="font-h2 text-h2 text-on-surface">Grimório</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm">
+<!-- Spellcasting Header Stats -->
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg flex flex-col items-center justify-center">
+<span class="text-[10px] font-label-caps text-on-surface-variant mb-1">Atributo</span>
+<span class="text-h3 text-primary font-serif">Carisma</span>
+</div>
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg flex flex-col items-center justify-center">
+<span class="text-[10px] font-label-caps text-on-surface-variant mb-1">CD de Magia</span>
+<span class="text-h2 font-h1 text-on-surface">15</span>
+</div>
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg flex flex-col items-center justify-center">
+<span class="text-[10px] font-label-caps text-on-surface-variant mb-1">Bônus de Ataque</span>
+<span class="text-h2 font-h1 text-on-surface">+7</span>
+</div>
+</div>
+<!-- Spell Slots Tracker -->
+<div class="flex flex-wrap gap-sm">
+<div class="flex-1 min-w-[140px] bg-surface-container border border-outline-variant/30 p-base rounded-lg flex items-center justify-between">
+<div>
+<div class="text-[10px] font-label-caps text-on-surface-variant uppercase">1º Círculo</div>
+<div class="flex gap-1 mt-1">
+<div class="w-4 h-4 rounded-sm bg-primary/80"></div>
+<div class="w-4 h-4 rounded-sm bg-primary/80"></div>
+<div class="w-4 h-4 rounded-sm border border-outline-variant/30"></div>
+<div class="w-4 h-4 rounded-sm border border-outline-variant/30"></div>
+</div>
+</div>
+<span class="text-h3 font-serif text-on-surface-variant">4</span>
+</div>
+<div class="flex-1 min-w-[140px] bg-surface-container border border-outline-variant/30 p-base rounded-lg flex items-center justify-between">
+<div>
+<div class="text-[10px] font-label-caps text-on-surface-variant uppercase">2º Círculo</div>
+<div class="flex gap-1 mt-1">
+<div class="w-4 h-4 rounded-sm bg-primary/80"></div>
+<div class="w-4 h-4 rounded-sm border border-outline-variant/30"></div>
+</div>
+</div>
+<span class="text-h3 font-serif text-on-surface-variant">2</span>
+</div>
+</div>
+<!-- Spell List -->
+<div class="space-y-md">
+<div>
+<div class="flex items-center gap-2 mb-sm border-b border-outline-variant/20 pb-xs">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold font-serif">1</span>
+<h4 class="font-serif text-lg font-bold text-on-surface">Primeiro Círculo</h4>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-xs">
+<h5 class="font-bold text-on-surface group-hover:text-primary transition-colors">Benção</h5>
+<span class="text-[10px] font-label-caps bg-surface-bright/20 text-on-surface-variant px-1.5 rounded">C</span>
+</div>
+<p class="text-xs text-on-surface-variant">Abençoa até 3 criaturas. Adicione 1d4 em jogadas de ataque.</p>
+<div class="mt-base flex gap-4 text-[10px] text-on-surface-variant uppercase">
+<span>Ação</span>
+<span>9m</span>
+</div>
+</div>
+<div class="bg-surface-container border border-outline-variant/30 p-sm rounded-lg hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-xs">
+<h5 class="font-bold text-on-surface group-hover:text-primary transition-colors">Cura Curativa</h5>
+<span class="text-[10px] font-label-caps bg-surface-bright/20 text-on-surface-variant px-1.5 rounded">V,S</span>
+</div>
+<p class="text-xs text-on-surface-variant">Uma criatura recupera PV igual a 1d8 + modificador.</p>
+<div class="mt-base flex gap-4 text-[10px] text-on-surface-variant uppercase">
+<span>Ação</span>
+<span>Toque</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 border-t border-outline-variant/30 bg-surface-container-lowest flex justify-around items-center h-20 px-2">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1">
+<span class="material-symbols-outlined">person</span>
+<span class="font-serif text-[10px]">Ficha</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary bg-primary/10 rounded-lg px-4 py-1">
+<span class="material-symbols-outlined">shield</span>
+<span class="font-serif text-[10px] font-bold">Combate</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-serif text-[10px]">Magias</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1">
+<span class="material-symbols-outlined">backpack</span>
+<span class="font-serif text-[10px]">Itens</span>
+</div>
+</nav>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 md:bottom-10 md:right-10 w-14 h-14 bg-primary text-surface-container-lowest rounded-full shadow-xl flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">swords</span>
+</button>
+</body></html>
